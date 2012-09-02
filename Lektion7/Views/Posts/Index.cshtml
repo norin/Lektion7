@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Lektion7.Models.Entities.Post
+@{
     ViewBag.Title = "Index";
 }
 
@@ -10,4 +11,4 @@
 
 @(true ? "True" : "False")
 
-@ViewBag.Post.Title
+@Model.Title

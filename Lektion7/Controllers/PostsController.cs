@@ -15,7 +15,7 @@ namespace Lektion7.Controllers
 
         public ActionResult Index(int id)
         {
-            var post = Repository.Instance.All<Post>().OrderBy(p => p.CreateDate).Skip(0).FirstOrDefault();
+            var post = Repository.Instance.GetPostByIndex(id);
 
             return View();
         }

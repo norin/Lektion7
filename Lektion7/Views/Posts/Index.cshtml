@@ -1,5 +1,5 @@
-﻿@model Lektion7.Models.Entities.Post
-@{
+﻿@model Lektion7.ViewModels.MyViewModel
+@{           
     ViewBag.Title = "Index";
 }
 
@@ -11,4 +11,5 @@
 
 @(true ? "True" : "False")
 
-@Model.Title
+@Model.Post.Title
+@Model.MyInteger

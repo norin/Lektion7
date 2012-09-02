@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Lektion7.Models.Repositories;
 using Lektion7.Models.Entities;
+using Lektion7.ViewModels;
 
 namespace Lektion7.Controllers
 {
@@ -17,7 +18,11 @@ namespace Lektion7.Controllers
         {
             var post = Repository.Instance.GetPostByIndex(id);
 
-            return View(post);
+            var MyViewModel = new MyViewModel();
+            MyViewModel.Post = post;
+            MyViewModel.MyInteger = 5;
+
+            return View(MyViewModel);
         }
 
     }

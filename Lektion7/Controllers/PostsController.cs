@@ -15,7 +15,8 @@ namespace Lektion7.Controllers
 
         public ActionResult Index(int id)
         {
-            var post = Repository.Instance.GetPostsByIndex(id);
+            var post = Repository.Instance.GetPostByIndex(id);
+
             return View();
         }
 

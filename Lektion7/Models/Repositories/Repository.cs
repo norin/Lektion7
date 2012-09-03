@@ -136,7 +136,7 @@ namespace Lektion7.Models.Repositories
         {
             return All<Post>().Where(p => p.CreatedByID == userID).Take(take).ToList();
         }
-        public Post GetPostsByIndex(int index)
+        public Post GetPostByIndex(int index)
         {
             index = index < 1 ? 1 : index;
             index = index > (All<Post>().Count - 1) ? (All<Post>().Count - 1) : index;

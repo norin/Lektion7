@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Lektion7.Models.Repositories;
+using Lektion7.Models.Entities;
 
 namespace Lektion7.Controllers
 {
@@ -13,6 +15,7 @@ namespace Lektion7.Controllers
 
         public ActionResult Index(int id)
         {
+            var post = Repository.Instance.GetPostsByIndex(id);
             return View();
         }
 

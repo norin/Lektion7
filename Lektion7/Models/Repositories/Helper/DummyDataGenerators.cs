@@ -258,7 +258,7 @@ namespace Lektion7.Models.Repositories.Helpers
             int hourOffset = -1 * rng.Next(23);
             int minuteOffset = -1 * rng.Next(59);
             List<Post.PostTags> tagList = GenerateTagList(rng);
-            Post newPost = new Post { CreatedByID = UserIDs[userIndex], Title = postTitles[postTitleIndex], Body = postBodies[postBodyIndex], CreateDate = DateTime.Now.AddDays(dayOffset).AddHours(hourOffset).AddMinutes(minuteOffset), Tags = tagList };
+            Post newPost = new Post { ID = Guid.NewGuid(), CreatedByID = UserIDs[userIndex], Title = postTitles[postTitleIndex], Body = postBodies[postBodyIndex], CreateDate = DateTime.Now.AddDays(dayOffset).AddHours(hourOffset).AddMinutes(minuteOffset), Tags = tagList };
             return newPost;
         }
 

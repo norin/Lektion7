@@ -138,7 +138,9 @@ namespace Lektion7.Models.Repositories
         }
         public Post GetPostsByIndex(int index)
         {
-            return ElementAt(id);
+            index = index < 1 ? 1 : index;
+            index = index > (All<Post>().Count - 1) ? (All<Post>().Count - 1) : index;
+            return All<Post>().OrderBy(p => p.CreateDate).ElementAt(index);
         }
     }
 }

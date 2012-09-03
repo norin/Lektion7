@@ -16,7 +16,8 @@ namespace Lektion7.Controllers
         public ActionResult Index(int id)
         {
             var post = Repository.Instance.GetPostByIndex(id);
-
+            /// post nedan är hämtad från det vi gjorde i uppgift3
+            ViewBag.MyData = post;
             return View();
         }
 

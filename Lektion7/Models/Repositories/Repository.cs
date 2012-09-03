@@ -16,7 +16,7 @@ namespace Lektion7.Models.Repositories
     public class Repository : IRepository
     {
         // privata listor med User- och Post-objekt
-        private Dictionary<string,IList> dataSource;
+        private Dictionary<string, IList> dataSource;
 
         /// <summary>
         /// Returns the instance of the repository (Makes sure the repository is only created once - Using the Singleton Design Pattern
@@ -136,10 +136,17 @@ namespace Lektion7.Models.Repositories
         {
             return All<Post>().Where(p => p.CreatedByID == userID).Take(take).ToList();
         }
+
+        // Hämtar en post baserat på dess index bland posts sorterade på CreateDate
         public Post GetPostByIndex(int index)
         {
+            // Jag antar att det som kommer in är 1-indexerat (I ett riktigt projekt är detta definierat, och vi behöver inte gissa):
             index = index < 1 ? 1 : index;
+            // Lägg märke till att nedanstående inte nödvändigtvis är en bra lösning, men det är lite av en filosofisk fråga
+            // Vi skulle istället kunna låta detta gå igenom för att istället hantera ev. Index-Out-Of-Bounds Exception i Controller.
+            // Argumentet för att detta inte skulle vara en bra lösning är att denna funktionalitet inte är självklar när du ser metod-namnet
             index = index > (All<Post>().Count - 1) ? (All<Post>().Count - 1) : index;
+
             return All<Post>().OrderBy(p => p.CreateDate).ElementAt(index);
         }
     }

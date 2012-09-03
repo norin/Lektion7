@@ -1,4 +1,6 @@
-﻿﻿@{
+﻿@using Lektion7.ViewModels
+@model PostViewModel
+@{
     ViewBag.Title = "Index";
 }
 
@@ -6,8 +8,9 @@
 
 @Guid.Empty 
 
-@foreach(var i in new int[] {1,2,3}) {@i} 
+@foreach (var i in new int[] { 1, 2, 3 })
+{@i} 
 
 @(true ? "True" : "False")
 
-@ViewBag.Post.Title
+@Model.Title
